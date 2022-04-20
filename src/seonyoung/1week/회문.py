@@ -1,3 +1,4 @@
+input = sys.stdin.readline
 
 def isLeftHalf(tempString):
     tempString=tempString[1:]

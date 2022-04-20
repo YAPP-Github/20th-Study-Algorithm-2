@@ -1,20 +1,14 @@
-from re import L
 
+import sys 
+input = sys.stdin.readline 
 
-n = int(input())
+n=int(input())
+file={}
 
-fileList= {}
-for i in range(0,n):
+for i in range(n): 
     fileName = input()    
     dotIndex = fileName.find('.') +1
-    extension = fileName[dotIndex:]
-
-    if (extension not in fileList): 
-        fileList[extension] =1
-    else: 
-        fileList[extension] +=1
-    
-    fileList = list(fileList.keys()).sort()
-    print(fileList)
-    # for temp in fileList:
-    #     print(temp, fileList[temp])
+    extension = fileName[dotIndex:-1]
+    file[extension] = file.get(extension, 0) + 1 
+for value in sorted(file.items()): 
+    print(value[0], value[1])
