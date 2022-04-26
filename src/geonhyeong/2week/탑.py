@@ -3,7 +3,7 @@
 # Primary idea:     자료구조, 스택
 #                   1. 2중 반복문(O(n^2))이여서 시간초과남
 # 
-# Time Complexity : O()
+# Time Complexity : O() 
 # Space Complexity : O()
 # Runtime:  ms
 # Memory Usage:  MB

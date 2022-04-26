@@ -1,10 +1,12 @@
 # 문제 추천 시스템 Version 1.py
 # Question Link: https://www.acmicpc.net/problem/21939
 # Primary idea:     자료구조, 우선순위 큐
-#                   1. 
+#                   1. 시간초과 문제 : sys와 strip(개행문자 제거)를 통해 해결
+#                   2. dict을 이용해 문제를 푼 문제인지 check
+#                   3. solved를 할때, heap에서 찾아서 제거
 # 
 # Time Complexity : O(log n)
-# Space Complexity : O()
+# Space Complexity : O() 
 # Runtime:  ms
 # Memory Usage:  MB
 
