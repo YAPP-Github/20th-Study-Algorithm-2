@@ -7,7 +7,7 @@
 #                   4. combination으로 조합을 구한뒤, 새로운 식을 만듦
 #                   5. '(((0)))'같은 hidden case를 고려해 res를 set으로 선언
 # 
-# Time Complexity : O()
+# Time Complexity : O() 
 # Space Complexity : O()
 # Runtime: 80 ms
 # Memory Usage: 30.84 MB

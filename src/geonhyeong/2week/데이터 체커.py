@@ -11,7 +11,7 @@
 #                       5-2. 다르면 "NO"
 #                       * top = stack[-1]
 # 
-# Time Complexity : O()
+# Time Complexity : O() 
 # Space Complexity : O()
 # Runtime: 928 ms
 # Memory Usage: 90.37 MB
