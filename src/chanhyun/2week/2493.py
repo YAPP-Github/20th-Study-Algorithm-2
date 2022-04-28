@@ -1,26 +1,26 @@
+import copy
+
 n = int(input())
 towers = list(map(int, input().split()))
-answer = []
+answer = copy.deepcopy(towers)
+dict = dict()
 
-dic = dict()
-dic[0] = 0
-for i in range(n):
-    dic[towers[i]] = i+1
+idx = n
+temp = []
+while towers:
+    temp.append(towers.pop())
+    dict[temp[-1]] = 0
+    idx -= 1
 
-for _ in range(n):
-    temp = []
-    now = towers.pop()
-
-    while towers and now > towers[-1]:
+    while towers and towers[-1] < temp[-1]:
         temp.append(towers.pop())
+        dict[temp[-1]] = 0
+        idx -= 1
+
     if towers:
-        answer.append(towers[-1])
-    else:
-        answer.append(0)
+        while temp and towers[-1] > temp[-1]:
+            dict[temp[-1]] = idx
+            temp.pop()
 
-    while temp:
-        towers.append(temp.pop())
-
-answer.reverse()
-for a in answer:
-    print(dic[a], end=' ')
+for i in range(n):
+    print(dict[answer[i]], end=' ')
