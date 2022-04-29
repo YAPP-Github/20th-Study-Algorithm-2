@@ -2,9 +2,7 @@ n = int(input())
 
 answerList  = []
 stackList = []
-
 heightList = list(map(int,input().split()))
-print(heightList)
 
 for i in range(n):
 
