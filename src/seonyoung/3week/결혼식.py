@@ -1,6 +1,6 @@
 
 #인접한 노드를 구해주는 문제인 것 같아서 너비우선탐색인 BFS를 사용해서 푸었습니다!
-#거리가 2이상 3이하인 노드의 갯수를 출력해줍니다. 
+#거리가 3미만인 노드의 갯수를 출력해줍니다. 
 
 from collections import deque
 
@@ -18,7 +18,6 @@ def bfs(startNode):
                 visited[nextNode] =1
                 queue.append([nextNode,dist+1])
     return answer-1
-
 
 
 friendsNum = int(input())
