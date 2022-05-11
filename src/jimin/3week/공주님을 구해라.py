@@ -4,7 +4,7 @@ from collections import deque
 #그람을 구한다면 벽을 뚫을 수 있음
 n,m,t = map(int,input().split())
 arr =[list(map(int,input().split())) for _ in range(n)]
-visited = list([0]*m for _ in range(n))
+visited = list([0]*m for _ in range(n)) #방문 여부를
 
 dx = [0,0,-1,1]
 dy = [1,-1,0,0]
@@ -21,7 +21,7 @@ def save_princess(y,x):
 
         for i in range(4):
             ny, nx= y+ dy[i], x+ dx[i]
-            if (nx < 0 or nx >= m or ny < 0 or ny >= n or visited[ny][nx] or arr[ny][nx] == 1):
+            if (nx < 0 or nx >= m or ny < 0 or ny >= n or visited[ny][nx] or arr[ny][nx] == 1): #벽이 존재할때
                 continue
             visited[ny][nx] = visited[y][x] + 1
             queue.append((ny, nx))
