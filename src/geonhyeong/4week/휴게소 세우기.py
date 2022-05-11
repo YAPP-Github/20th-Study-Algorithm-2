@@ -19,25 +19,28 @@
 import sys
 input = sys.stdin.readline
 
-N,K = map(int,input().split())
-solution = list(map(int,input().split())) 
+N, M, L = map(int, input().split())
+rest = list(map(int, input().split()))
+rest.append(0)
+rest.append(L)
+rest.sort()
 
-left, right = 0, sum(solution)+1 # right = 최댓값
+left, right = 1, L-1
+res = 0
 
-while left + 1 < right:
+while left <= right:
     mid = (left + right) // 2
     cnt = 0
-    sum = 0
+    for i in range(1, len(rest)):
+        # 현재 거리 중 mid보다 큰 거리를 찾아서
+        if rest[i]-rest[i-1] > mid:
+            # 나눈 만큼 휴게소를 설치 (현재 설치 되어있는 구역은 제외해야해서 -1)
+            cnt += (rest[i] - rest[i-1] - 1) // mid
     
-    for i in range(0, N):
-        sum += solution[i] # 각 시험지의 점수를 더하고
-        if sum >= mid: # 설정한 기준 점수보다 sum값이 커지면 그룹을 분리함
-            sum = 0
-            cnt += 1 # 그룹 개수 카운트
-
-    if cnt >= K:
-        left = mid
+    if cnt > M:
+        left = mid+1
     else:
-        right = mid # 카운트한 그룹 개수가 k보다 작으면 기준 점수를 낮춰서 그룹의 개수를 더 많이 생성하는 범위로 좁힘
+        right = mid-1
+        res = mid
 
-print(left)
+print(res)
