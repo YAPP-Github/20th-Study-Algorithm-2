@@ -72,7 +72,7 @@ res = 0
 ate = 0
 
 while True:
-    value = find(bfs()) # 물고기를 찾고 모든 위치까지의 최단거리만 계산
+    value = find(bfs()) # 위치까지의 최단거리만 계산, 먹을 수 있는 물고기를 찾기
 
     if value == None: # 더이상 먹을 물고기가 존재하지 않을 때 까지 반복
         print(res)
@@ -81,7 +81,7 @@ while True:
         curX, curY = value[0], value[1] # 아기상어의 현재위치
         res += value[2]                 # 현재 아기상어가 이동한 최단거리, 즉 이동한 시간을 저장
         board[curX][curY] = 0
-        ate += 1                        # 자신의 크기와 먹은 물고기의 갯수가 같아질 경우, 
-    if ate >= size:                     # ate가 size와 같아지면
+        ate += 1         
+    if ate >= size:                     # 자신의 크기와 먹은 물고기의 갯수가 같아질 경우
         size += 1
         ate = 0
