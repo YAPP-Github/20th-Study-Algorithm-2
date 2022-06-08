@@ -14,13 +14,13 @@ input = sys.stdin.readline
 testCase = 1
 node = set()
 indegree = {}
+outdegree = {}
 
 def printRes(isTree):
     if isTree:
         print(f"Case {testCase} is a tree.")
     else:
         print(f"Case {testCase} is not a tree.")
-
 
 while testCase:
     isTree = True           # Tree인지 아닌지 판별
@@ -29,6 +29,7 @@ while testCase:
     cntNode = 0             # Node의 갯수    
     node.clear()            # Tree 초기화
     indegree.clear()        # 들어오는 화살표 초기화
+    outdegree.clear()       # 나가는 화살표 초기화
 
     while isNext:
         str = input().strip().split("  ")
@@ -57,9 +58,23 @@ while testCase:
                 if start in indegree and indegree[start] == end: # cycle
                     isTree = False
                 indegree[end] = start
+                outdegree[start] = end
 
     if cntEdge > 0 and len(node) != cntEdge + 1:
         isTree = False
+    
+    root = -1
+    # root 찾기
+    for n in node:
+        if not n in indegree:
+            if n in outdegree:
+                if root != -1: # root가 2개이상
+                    isTree = False 
+                root = n
+    
+    if len(node) > 0: # 노드가 있을때 ex) 0 0도 Tree
+        if root == -1: # root가 없을때
+            isTree = False
 
     printRes(isTree)
     testCase += 1           # 다음 case
