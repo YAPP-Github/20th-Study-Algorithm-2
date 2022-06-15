@@ -1,0 +1,30 @@
+# 겹치는 건 싫어py.py
+# Question Link: https://www.acmicpc.net/problem/20922
+# Primary idea:     투 포인터
+#                   1. 
+# 
+# Time Complexity : O()
+# Space Complexity : O()
+# Runtime: 608 ms
+# Memory Usage: 52.336 MB
+
+import sys
+input = sys.stdin.readline
+
+n, k = map(int, input().split())
+arr = list(map(int, input().split()))
+
+res = 0
+start, end = 0, 0
+counter = [0] * (max(arr) + 1) # counter를 통해 해당 숫자가 몇 번 나왔는지 체크, 0 < a < 100,001
+
+while end < n: # end n 미만일 때까지 반복을 진행
+    if counter[arr[end]] < k: # end 가리키는 수의 갯수가 k개 이하이면 계속
+        counter[arr[end]] += 1
+        end += 1
+    else: # k보다 많아지면 k 이하가 될 때까지 start 오른쪽으로 움직이면서 현재 end에 start 하나 올 떄까지 이동
+        counter[arr[start]] -= 1
+        start += 1
+    res = max(res, end - start)
+
+print(res)
