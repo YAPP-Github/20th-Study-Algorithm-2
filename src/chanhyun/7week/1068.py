@@ -5,7 +5,8 @@ erase  = int(input())
 def dfs(x, tree):
     tree[x] = -2
     for i in range(n):
-        dfs(i, tree)
+        if x == tree[i]:
+            dfs(i, tree)
 
 dfs(erase, tree)
 count = 0
