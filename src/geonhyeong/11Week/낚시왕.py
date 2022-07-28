@@ -1,4 +1,4 @@
-# .py
+# 낚시왕.py
 # Question Link: 
 # Primary idea:     String
 #                   1. 
